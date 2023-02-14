@@ -8,7 +8,7 @@ const config = {
         target: 'http://localhost:3000/'
       },
     }
-  },
+  }, 
 
 };
 

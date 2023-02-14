@@ -1,7 +1,7 @@
 export async function load(event){
 	
 	const recipes = async () =>{
-		const response = await event.fetch(`/api/recipes`,{
+		const response = await event.fetch(`/backend/recipes`,{
       method: 'POST',
       body: JSON.stringify({ limit: 9, skip: 0 }),
       headers: {
@@ -14,7 +14,7 @@ export async function load(event){
 	}	
 
 	const flavors = async () =>{
-		const response = await event.fetch(`/api/flavors`)
+		const response = await event.fetch(`/backend/flavors`)
 		
 		const flavors =  await response.json()
 		return flavors
