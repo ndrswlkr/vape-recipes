@@ -13,13 +13,7 @@ export async function load(event){
 		return recipes
 	}	
 
-	const flavors = async () =>{
-		const response = await event.fetch(`/backend/flavors`)
-		
-		const flavors =  await response.json()
-		return flavors
-		}
 
-	return {recipes: recipes(), flavors: flavors()}
+	return {recipes: recipes()}
 }
 

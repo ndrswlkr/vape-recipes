@@ -1,10 +1,13 @@
 <script>
 	export let recipe
+
 	import fix_recipe_name from '$lib/fix_recipe_name.js'
 	import {mix_it} from '$lib/recipe_functions'
+	import { mixing_store } from '$lib/stores/mixing_store'
+
 	let mix
 
-	$: mix = mix_it(recipe.recipe)
+	$: mix = mix_it(recipe.recipe, $mixing_store.amount_to_make)
 	$: recipe.short_title = fix_recipe_name(recipe.short_title)
 	
 	function pretty_date(date){

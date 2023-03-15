@@ -27,6 +27,7 @@
       	date: $search_and_filter.sort_by_date,
       	origin: $search_and_filter.sort_by_origin,
       	favorite: $search_and_filter.sort_by_favorite,
+      	recipe_name: $search_and_filter.recipe_name,
       	 }),
       headers: {
         'content-type': 'application/json'

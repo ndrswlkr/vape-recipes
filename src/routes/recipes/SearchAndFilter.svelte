@@ -1,12 +1,19 @@
 <script>
+
+	import { page } from '$app/stores';
 	import {onMount} from 'svelte'
 	import {search_and_filter} from '$lib/stores/search_and_filter.js'
-	export let flavors
+	
 
 
 	function close_popup(element) {
-  document.getElementById(element).removeAttribute('open');
-}
+  	document.getElementById(element).removeAttribute('open');
+	}
+	function update_recipe_name(name){
+		console.log("changed", name)
+		$search_and_filter.recipe_name = name
+	}
+
 </script>
 
 <main>
@@ -46,9 +53,17 @@
 							<option value="load-flavor-recipes">  load-flavor-recipes </option>
 						</select>
 			</section>
+			<section>
+				<label for=recipe-name>search by recipe name</label>
+				<input 
+					type=text 
+					id=recipe-name 
+					on:change={(e) => update_recipe_name(e.target.value)} 
+				/>
+			</section>
 			</div>
 
-		{#await flavors}
+		{#await $page.data.flavors}
 			<p aria-busy=true>wait...</p>
 		{:then flavors}
 			<section>
